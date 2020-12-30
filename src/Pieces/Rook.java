@@ -22,11 +22,46 @@ public class Rook extends ChessPiece {
 
     @Override
     public ArrayList<Cell> possibleAttacks() {
-        return null;
+        ArrayList<Cell> threatenedCells = new ArrayList<Cell>();
+        int xCurr = this.position.getCol();
+        int yCurr = this.position.getLine();
+        Cell currCell;
+        while(xCurr > 0){
+            xCurr --;
+            currCell = this.gm.grid.cells.get(yCurr * this.gm.grid.width + xCurr);
+            if(currCell.getOccupant() != null && currCell.getOccupant().getSide() == this.side) break;
+            threatenedCells.add(currCell);
+            if(currCell.getOccupant() != null && currCell.getOccupant().getSide() != this.side) break;
+        }
+        xCurr = this.position.getCol();
+        while(xCurr < this.gm.grid.width-1){
+            xCurr ++;
+            currCell = this.gm.grid.cells.get(yCurr * this.gm.grid.width + xCurr);
+            if(currCell.getOccupant() != null && currCell.getOccupant().getSide() == this.side) break;
+            threatenedCells.add(currCell);
+            if(currCell.getOccupant() != null && currCell.getOccupant().getSide() != this.side) break;
+        }
+        xCurr = this.position.getCol();
+        while(yCurr > 0){
+            yCurr --;
+            currCell = this.gm.grid.cells.get(yCurr * this.gm.grid.width + xCurr);
+            if(currCell.getOccupant() != null && currCell.getOccupant().getSide() == this.side) break;
+            threatenedCells.add(currCell);
+            if(currCell.getOccupant() != null && currCell.getOccupant().getSide() != this.side) break;
+        }
+        yCurr = this.position.getLine();
+        while(yCurr < this.gm.grid.height-1){
+            yCurr ++;
+            currCell = this.gm.grid.cells.get(yCurr * this.gm.grid.width + xCurr);
+            if(currCell.getOccupant() != null && currCell.getOccupant().getSide() == this.side) break;
+            threatenedCells.add(currCell);
+            if(currCell.getOccupant() != null && currCell.getOccupant().getSide() != this.side) break;
+        }
+        return threatenedCells;
     }
 
     @Override
     public ArrayList<Cell> possibleMove() {
-        return new ArrayList<Cell>();
+        return this.possibleAttacks();
     }
 }
