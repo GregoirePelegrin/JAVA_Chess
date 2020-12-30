@@ -5,7 +5,7 @@ public class Game {
 
     public static void main(String args[]){
         gameManager = new GameManager();
-        gameManager.pieces.get(20).select();
+        gameManager.pieces.get(0).select();
         System.out.println(gameManager);
     }
 }
