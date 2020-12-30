@@ -21,6 +21,11 @@ public class Queen extends ChessPiece {
     }
 
     @Override
+    public ArrayList<Cell> possibleAttacks() {
+        return null;
+    }
+
+    @Override
     public ArrayList<Cell> possibleMove() {
         return new ArrayList<Cell>();
     }

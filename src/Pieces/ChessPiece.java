@@ -15,6 +15,7 @@ public abstract class ChessPiece {
     protected Side side;
 
     public abstract void Move();
+    public abstract ArrayList<Cell> possibleAttacks();
     public abstract ArrayList<Cell> possibleMove();
 
     public Side getSide(){

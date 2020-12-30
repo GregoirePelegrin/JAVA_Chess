@@ -21,7 +21,7 @@ public class King extends ChessPiece {
     }
 
     @Override
-    public ArrayList<Cell> possibleMove() {
+    public ArrayList<Cell> possibleAttacks() {
         ArrayList<Cell> threatenedCells = new ArrayList<Cell>();
         int xCurr = this.position.getCol();
         int yCurr = this.position.getLine();
@@ -63,5 +63,11 @@ public class King extends ChessPiece {
             }
         }
         return threatenedCells;
+    }
+
+    @Override
+    public ArrayList<Cell> possibleMove() {
+        // TODO: Verify if the cells really are accessible for the King
+        return this.possibleAttacks();
     }
 }

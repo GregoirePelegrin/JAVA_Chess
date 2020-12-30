@@ -21,7 +21,7 @@ public class Bishop extends ChessPiece {
     }
 
     @Override
-    public ArrayList<Cell> possibleMove() {
+    public ArrayList<Cell> possibleAttacks() {
         ArrayList<Cell> threatenedCells = new ArrayList<Cell>();
         int xCurr = this.position.getCol();
         int yCurr = this.position.getLine();
@@ -73,5 +73,10 @@ public class Bishop extends ChessPiece {
             if(currCell.getOccupant() != null) break;
         }
         return threatenedCells;
+    }
+
+    @Override
+    public ArrayList<Cell> possibleMove() {
+        return this.possibleAttacks();
     }
 }
