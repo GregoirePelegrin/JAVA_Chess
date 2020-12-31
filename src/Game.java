@@ -1,10 +1,17 @@
 import Manager.GameManager;
+import UI.App;
 
 public class Game {
     public static GameManager gameManager;
 
     public static void main(String args[]){
-        test();
+        //test();
+
+        App app = new App();
+        /*app.pack();
+        app.setVisible(true);
+        app.setGameManager(gameManager);*/
+        gameManager.setApp(app);
     }
 
     public static void test(){

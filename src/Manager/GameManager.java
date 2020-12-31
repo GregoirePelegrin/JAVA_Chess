@@ -2,11 +2,13 @@ package Manager;
 
 import Board.Grid;
 import Pieces.*;
+import UI.App;
 import Utils.Side;
 
 import java.util.ArrayList;
 
 public class GameManager {
+    public App app;
     public ArrayList<ChessPiece> pieces;
     public Grid grid;
 
@@ -44,6 +46,10 @@ public class GameManager {
         this.pieces.add(new Rook(this, Side.BLACK, this.grid.cells.get(0*this.grid.width + 7)));
         this.pieces.add(new Rook(this, Side.WHITE, this.grid.cells.get(7*this.grid.width + 0)));
         this.pieces.add(new Rook(this, Side.WHITE, this.grid.cells.get(7*this.grid.width + 7)));
+    }
+
+    public void setApp(App _app){
+        this.app = _app;
     }
 
     @Override
