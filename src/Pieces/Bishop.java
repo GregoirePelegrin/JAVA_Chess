@@ -16,8 +16,14 @@ public class Bishop extends ChessPiece {
     }
 
     @Override
-    public void Move() {
-
+    public void move(Cell nextCell) {
+        if(this.selected){
+            if(this.possibleMove().contains(nextCell)) {
+                this.position = nextCell;
+            } else {
+                this.selected = false;
+            }
+        }
     }
 
     @Override

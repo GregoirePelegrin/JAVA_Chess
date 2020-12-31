@@ -14,7 +14,7 @@ public abstract class ChessPiece {
     protected boolean selected = false;
     protected Side side;
 
-    public abstract void Move();
+    public abstract void move(Cell nextCell);
     public abstract ArrayList<Cell> possibleAttacks();
     public abstract ArrayList<Cell> possibleMove();
 
