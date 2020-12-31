@@ -4,6 +4,10 @@ public class Game {
     public static GameManager gameManager;
 
     public static void main(String args[]){
+        test();
+    }
+
+    public static void test(){
         gameManager = new GameManager();
         System.out.println("Selected");
         gameManager.pieces.get(6).select();
