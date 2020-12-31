@@ -24,36 +24,7 @@ public class Cell {
         }
     }
 
-    public CellColour getColour(){
-        return this.colour;
-    }
-
-    public int getCol(){
-        return this.col;
-    }
-
-    public int getLine(){
-        return this.line;
-    }
-
-    public ChessPiece getOccupant() {
-        return this.occupant;
-    }
-
-    public void setOccupant(ChessPiece _occupant) {
-        this.occupant = _occupant;
-    }
-
-    public boolean getThreatened(){
-        return this.threatened;
-    }
-
-    public void setThreatened(boolean _threatened){
-        this.threatened = _threatened;
-    }
-
-    @Override
-    public String toString() {
+    public String display(){
         String value = "";
         if(this.occupant != null){
             value += this.occupant.toString();
@@ -74,5 +45,43 @@ public class Cell {
         }
         if(value == "") return " ";
         return value;
+    }
+
+    public CellColour getColour(){
+        return this.colour;
+    }
+
+    public int getCol(){
+        return this.col;
+    }
+
+    public int getLine(){
+        return this.line;
+    }
+
+    public ChessPiece getOccupant() {
+        return this.occupant;
+    }
+
+    public void setOccupant(ChessPiece _occupant) {
+        this.occupant = _occupant;
+        this.occupant.setPosition(this);
+    }
+
+    public void setOccupantEmpty() {
+        this.occupant = null;
+    }
+
+    public boolean getThreatened(){
+        return this.threatened;
+    }
+
+    public void setThreatened(boolean _threatened){
+        this.threatened = _threatened;
+    }
+
+    @Override
+    public String toString() {
+        return "Cell(" + this.getCol() + "," + this.getLine() + "," + this.getOccupant() + ")";
     }
 }

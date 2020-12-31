@@ -14,7 +14,6 @@ public abstract class ChessPiece {
     protected boolean selected = false;
     protected Side side;
 
-    public abstract void move(Cell nextCell);
     public abstract ArrayList<Cell> possibleAttacks();
     public abstract ArrayList<Cell> possibleMove();
 
@@ -24,8 +23,20 @@ public abstract class ChessPiece {
     public boolean isSelected() {
         return this.selected;
     }
+    public void move(Cell nextCell) {
+        if(this.selected){
+            if(this.possibleMove().contains(nextCell)){
+                this.position.setOccupantEmpty();
+                nextCell.setOccupant(this);
+            }
+            this.selected = false;
+        }
+    }
     public void select(){
         this.selected = !this.selected;
+    }
+    public void setPosition(Cell cell){
+        this.position = cell;
     }
     public String toString(){
         if(this.side == Side.BLACK)

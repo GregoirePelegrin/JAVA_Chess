@@ -16,17 +16,6 @@ public class Rook extends ChessPiece {
     }
 
     @Override
-    public void move(Cell nextCell) {
-        if(this.selected){
-            if(this.possibleMove().contains(nextCell)) {
-                this.position = nextCell;
-            } else {
-                this.selected = false;
-            }
-        }
-    }
-
-    @Override
     public ArrayList<Cell> possibleAttacks() {
         ArrayList<Cell> threatenedCells = new ArrayList<Cell>();
         int xCurr = this.position.getCol();

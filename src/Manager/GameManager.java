@@ -48,6 +48,6 @@ public class GameManager {
 
     @Override
     public String toString() {
-        return this.grid.toString();
+        return this.grid.display();
     }
 }

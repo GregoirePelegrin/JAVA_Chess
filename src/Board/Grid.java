@@ -20,6 +20,17 @@ public class Grid {
         }
     }
 
+    public String display(){
+        String result = "|";
+        for(int i=0; i<this.height*this.width; i++){
+            if(i % this.width == 0 && i != 0){
+                result += "\n|";
+            }
+            result += "\t" + this.cells.get(i).display() + "\t|";
+        }
+        return result;
+    }
+
     @Override
     public String toString() {
         String result = "|";
